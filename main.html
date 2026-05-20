@@ -1,0 +1,764 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="keywords"
+content="Programming, HTML, CSS, JavaScript, Web Development, Coding">
+
+<meta name="description"
+content="Learn programming from zero to hero with Profay Codesite">
+
+<link rel="shortcut icon" type="image/x-icon" href="favicon.png">
+
+<title>Profay Codesite</title>
+
+<style>
+
+/* =========================
+   GLOBAL
+========================= */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial,sans-serif;
+  scroll-behavior:smooth;
+}
+
+body{
+  background:linear-gradient(to bottom right,#f5fff5,#eaffea);
+  color:#222;
+  overflow-x:hidden;
+}
+
+/* =========================
+   SCROLLBAR
+========================= */
+
+::-webkit-scrollbar{
+  width:10px;
+}
+
+::-webkit-scrollbar-thumb{
+  background:linear-gradient(to bottom,green,lawngreen);
+  border-radius:20px;
+}
+
+/* =========================
+   TOP BAR
+========================= */
+
+.top-bar{
+  background:linear-gradient(
+  -45deg,
+  #008000,
+  #00b300,
+  #32cd32,
+  #00ff7f
+  );
+
+  background-size:400% 400%;
+  animation:gradientMove 8s ease infinite;
+
+  color:white;
+  text-align:center;
+  padding:20px;
+  position:sticky;
+  top:0;
+  z-index:1000;
+
+  box-shadow:0 6px 20px rgba(0,0,0,0.2);
+}
+
+.logo{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.logo h1{
+  font-size:34px;
+  animation:glow 2s infinite alternate;
+}
+
+.img1{
+  width:50px;
+  height:50px;
+  animation:rotateLogo 6s linear infinite;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:15px;
+  margin-top:25px;
+}
+
+.navbar a{
+  text-decoration:none;
+  color:white;
+  padding:12px 24px;
+  border-radius:50px;
+  font-weight:bold;
+  transition:0.4s;
+  border:2px solid rgba(255,255,255,0.3);
+  background:rgba(255,255,255,0.1);
+  backdrop-filter:blur(5px);
+}
+
+.navbar a:hover{
+  background:white;
+  color:green;
+  transform:translateY(-5px) scale(1.05);
+}
+
+/* =========================
+   WELCOME BOX
+========================= */
+
+.welcome-box{
+  margin:20px auto 0;
+  width:fit-content;
+  max-width:90%;
+  background:rgba(255,255,255,0.15);
+  padding:12px 20px;
+  border-radius:20px;
+  backdrop-filter:blur(10px);
+  animation:fadeIn 1.5s ease;
+}
+
+#welcomeUser{
+  color:white;
+  font-weight:bold;
+  font-size:16px;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+  text-align:center;
+  padding:120px 20px;
+  position:relative;
+  overflow:hidden;
+}
+
+.hero::before{
+  content:"";
+  position:absolute;
+  width:350px;
+  height:350px;
+  background:rgba(0,255,0,0.08);
+  border-radius:50%;
+  top:-120px;
+  left:-120px;
+  animation:float 7s ease-in-out infinite;
+}
+
+.hero::after{
+  content:"";
+  position:absolute;
+  width:250px;
+  height:250px;
+  background:rgba(0,128,0,0.08);
+  border-radius:50%;
+  bottom:-80px;
+  right:-80px;
+  animation:float 6s ease-in-out infinite;
+}
+
+.hero h2{
+  font-size:60px;
+  color:green;
+  margin-bottom:25px;
+  position:relative;
+  z-index:2;
+  animation:bounce 3s infinite;
+}
+
+.hero p{
+  max-width:800px;
+  margin:auto;
+  line-height:1.9;
+  font-size:20px;
+  position:relative;
+  z-index:2;
+}
+
+/* =========================
+   STACK
+========================= */
+
+.stack{
+  padding:80px 20px;
+  text-align:center;
+}
+
+.stack h2{
+  font-size:40px;
+  color:green;
+  margin-bottom:45px;
+}
+
+.stack-box{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:25px;
+  max-width:1200px;
+  margin:auto;
+}
+
+.tech{
+  background:white;
+  padding:35px 25px;
+  border-radius:25px;
+  transition:0.4s;
+  box-shadow:0 10px 25px rgba(0,0,0,0.08);
+  border-top:5px solid green;
+}
+
+.tech:hover{
+  transform:translateY(-10px) scale(1.03);
+}
+
+.tech h3{
+  color:green;
+  margin-bottom:15px;
+  font-size:28px;
+}
+
+/* =========================
+   LESSONS
+========================= */
+
+.lesson-title{
+  text-align:center;
+  font-size:42px;
+  color:green;
+  margin:50px 0 40px;
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:30px;
+  padding:20px;
+  max-width:1200px;
+  margin:auto;
+}
+
+.card{
+  padding:35px 25px;
+  border-radius:25px;
+  color:white;
+  text-align:center;
+  transition:0.4s;
+  box-shadow:0 10px 20px rgba(0,0,0,0.15);
+}
+
+.card:hover{
+  transform:translateY(-12px);
+}
+
+.green{
+  background:linear-gradient(to right,#008000,#00c000);
+}
+
+.light{
+  background:linear-gradient(to right,#7fff00,#b7ff7a);
+  color:green;
+}
+
+.card h3{
+  font-size:30px;
+  margin-bottom:20px;
+}
+
+.card p{
+  line-height:1.8;
+  margin-bottom:25px;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.btn{
+  display:inline-block;
+  text-decoration:none;
+  background:white;
+  color:green;
+  padding:13px 28px;
+  border-radius:50px;
+  font-weight:bold;
+  transition:0.3s;
+  box-shadow:0 5px 12px rgba(0,0,0,0.1);
+}
+
+.btn:hover{
+  background:#111;
+  color:white;
+  transform:scale(1.08);
+}
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact{
+  text-align:center;
+  padding:100px 20px;
+}
+
+.contact h2{
+  font-size:40px;
+  color:green;
+  margin-bottom:20px;
+}
+
+.contact p{
+  max-width:700px;
+  margin:auto;
+  line-height:1.9;
+  font-size:18px;
+}
+
+.socials{
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  flex-wrap:wrap;
+  margin-top:35px;
+}
+
+.email-box{
+  margin-top:35px;
+}
+
+.email-box a{
+  text-decoration:none;
+  color:green;
+  font-weight:bold;
+  background:white;
+  padding:16px 25px;
+  border-radius:20px;
+  display:inline-block;
+  box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+  background:linear-gradient(to right,green,lawngreen);
+  color:white;
+  text-align:center;
+  padding:25px;
+  margin-top:40px;
+  font-size:17px;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes gradientMove{
+  0%{
+    background-position:0% 50%;
+  }
+
+  50%{
+    background-position:100% 50%;
+  }
+
+  100%{
+    background-position:0% 50%;
+  }
+}
+
+@keyframes glow{
+  from{
+    text-shadow:0 0 5px white;
+  }
+
+  to{
+    text-shadow:0 0 20px white;
+  }
+}
+
+@keyframes bounce{
+  0%,100%{
+    transform:translateY(0);
+  }
+
+  50%{
+    transform:translateY(-12px);
+  }
+}
+
+@keyframes float{
+  0%{
+    transform:translateY(0);
+  }
+
+  50%{
+    transform:translateY(20px);
+  }
+
+  100%{
+    transform:translateY(0);
+  }
+}
+
+@keyframes fadeIn{
+  from{
+    opacity:0;
+    transform:translateY(20px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+@keyframes rotateLogo{
+  from{
+    transform:rotate(0deg);
+  }
+
+  to{
+    transform:rotate(360deg);
+  }
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:992px){
+
+  .hero h2{
+    font-size:45px;
+  }
+
+  .hero p{
+    font-size:18px;
+  }
+
+  .lesson-title,
+  .stack h2,
+  .contact h2{
+    font-size:34px;
+  }
+
+}
+
+@media(max-width:768px){
+
+  .top-bar{
+    padding:18px 15px;
+  }
+
+  .logo{
+    flex-direction:column;
+  }
+
+  .logo h1{
+    font-size:28px;
+  }
+
+  .navbar{
+    flex-direction:column;
+    width:100%;
+  }
+
+  .navbar a{
+    width:90%;
+    max-width:300px;
+    text-align:center;
+  }
+
+  .hero{
+    padding:90px 20px;
+  }
+
+  .hero h2{
+    font-size:38px;
+    line-height:1.4;
+  }
+
+  .hero p{
+    font-size:17px;
+  }
+
+  .stack-box,
+  .cards{
+    grid-template-columns:1fr;
+  }
+
+  .card,
+  .tech{
+    width:100%;
+  }
+
+  .socials{
+    flex-direction:column;
+    align-items:center;
+  }
+
+  .btn{
+    width:90%;
+    max-width:280px;
+    text-align:center;
+  }
+
+}
+
+@media(max-width:480px){
+
+  .hero h2{
+    font-size:30px;
+  }
+
+  .hero p{
+    font-size:15px;
+  }
+
+  .stack h2,
+  .lesson-title,
+  .contact h2{
+    font-size:28px;
+  }
+
+  .card h3,
+  .tech h3{
+    font-size:24px;
+  }
+
+  .welcome-box{
+    width:95%;
+  }
+
+  footer{
+    font-size:14px;
+  }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header class="top-bar">
+
+<div class="logo">
+
+<img src="favicon.png" class="img1">
+
+<h1>Profay Codesite</h1>
+
+</div>
+
+<div class="navbar">
+
+<a href="#" style="color:#d4ffb3;">Home</a>
+
+<a href="#lessons">Lessons</a>
+
+<a href="#contact">Contact</a>
+
+<a href="#" onclick="logout()" style="color:#ffd6d6;">Logout</a>
+
+</div>
+
+<div class="welcome-box">
+
+<p id="welcomeUser"></p>
+
+</div>
+
+</header>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<h2>Grow Your Front-End Career 🚀</h2>
+
+<p>
+Learn HTML, CSS, JavaScript, React, Vue, Node.js and MongoDB
+with beginner friendly lessons and beautiful projects.
+</p>
+
+</section>
+
+<!-- STACK -->
+
+<section class="stack">
+
+<h2>⚡ JavaScript Ecosystem</h2>
+
+<div class="stack-box">
+
+<div class="tech">
+<h3>Node.js</h3>
+<p>Run JavaScript on the server side.</p>
+</div>
+
+<div class="tech">
+<h3>Express</h3>
+<p>Create powerful APIs easily.</p>
+</div>
+
+<div class="tech">
+<h3>React</h3>
+<p>Build modern user interfaces.</p>
+</div>
+
+<div class="tech">
+<h3>Vue</h3>
+<p>Simple and beginner friendly framework.</p>
+</div>
+
+<div class="tech">
+<h3>MongoDB</h3>
+<p>Store and manage application data.</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- LESSONS -->
+
+<section id="lessons">
+
+<h2 class="lesson-title">💻 Lessons</h2>
+
+<div class="cards">
+
+<div class="card green">
+<h3>HTML</h3>
+<p>Learn website structure from scratch.</p>
+<a href="https://w3schools.com/html" class="btn">Learn</a>
+</div>
+
+<div class="card light">
+<h3>CSS</h3>
+<p>Style websites beautifully and professionally.</p>
+<a href="https://w3schools.com/css" class="btn">Learn</a>
+</div>
+
+<div class="card green">
+<h3>JavaScript</h3>
+<p>Make websites interactive and dynamic.</p>
+<a href="https://w3schools.com/js" class="btn">Learn</a>
+</div>
+
+<div class="card light">
+<h3>React</h3>
+<p>Build modern UI with reusable components.</p>
+<a href="https://w3schools.com/react" class="btn">Learn</a>
+</div>
+
+<div class="card green">
+<h3>Vue</h3>
+<p>Easy and flexible JavaScript framework.</p>
+<a href="https://w3schools.com/vue" class="btn">Learn</a>
+</div>
+
+<div class="card light">
+<h3>Node.js</h3>
+<p>Backend runtime for JavaScript developers.</p>
+<a href="https://w3schools.com/nodejs" class="btn">Learn</a>
+</div>
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+
+<h2>Contact Us</h2>
+
+<p>
+Follow our channels for programming tutorials from zero to hero.
+</p>
+
+<div class="socials">
+
+<a href="https://t.me/programming_school_online"
+target="_blank"
+class="btn">
+Telegram
+</a>
+
+<a href="https://whatsapp.com/channel/0029VbC5tTd1XqueVtFr6B0r"
+target="_blank"
+class="btn">
+WhatsApp
+</a>
+
+</div>
+
+<div class="email-box">
+
+<a href="mailto:promisefrimpong1310@gmail.com">
+Email Us ✉️
+</a>
+
+</div>
+
+</section>
+
+<footer>
+
+© 2026 Profay Codesite | Built with HTML, CSS & JavaScript 🚀
+
+</footer>
+
+<script>
+
+const user = localStorage.getItem("userName");
+
+document.getElementById("welcomeUser").innerHTML =
+!user
+? "Welcome Programmer 👋"
+: `Hi ${user} 👋 Welcome to Profay Codesite`;
+
+function logout(){
+
+  localStorage.removeItem("userName");
+  localStorage.removeItem("userEmail");
+
+  alert("Logged out successfully.");
+
+  window.location.href = "signup.html";
+}
+
+</script>
+
+</body>
+
+</html>
