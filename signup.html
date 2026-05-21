@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon.png">
+  <title>Profay Codesite - Sign In</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+
+  <style>
+    :root {
+      --primary: #00c853;
+      --primary-dark: #00b140;
+      --accent: #69f0ae;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #e8f5e8, #c8e6c8);
+      font-family: 'Poppins', sans-serif;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Background floating orbs */
+    body::before, body::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,200,83,0.15), transparent);
+      animation: floatOrb 18s infinite linear;
+      z-index: -1;
+    }
+
+    body::before {
+      width: 400px;
+      height: 400px;
+      top: -100px;
+      left: -100px;
+    }
+
+    body::after {
+      width: 300px;
+      height: 300px;
+      bottom: -80px;
+      right: -80px;
+      animation-delay: -9s;
+    }
+
+    .wrapper {
+      width: 100%;
+      max-width: 420px;
+      padding: 20px;
+    }
+
+    .title {
+      text-align: center;
+      color: white;
+      background: linear-gradient(90deg, var(--primary), #00e676);
+      padding: 18px 20px;
+      border-radius: 20px;
+      margin-bottom: 30px;
+      box-shadow: 0 10px 30px rgba(0, 200, 83, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      animation: headerSlide 1.2s ease;
+    }
+
+    .img1 {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+    }
+
+    .container {
+      background: white;
+      padding: 40px 35px;
+      border-radius: 28px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+      text-align: center;
+      animation: fadeUp 1s ease;
+    }
+
+    h3 {
+      color: var(--primary-dark);
+      margin-bottom: 30px;
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    .input-group {
+      position: relative;
+      margin-bottom: 22px;
+    }
+
+    input {
+      width: 100%;
+      padding: 16px 20px 16px 50px;
+      border: 2px solid #e0e0e0;
+      border-radius: 16px;
+      font-size: 1rem;
+      transition: all 0.4s ease;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 4px rgba(0, 200, 83, 0.15);
+      transform: scale(1.03);
+    }
+
+    .input-group i {
+      position: absolute;
+      left: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--primary);
+      font-size: 1.3rem;
+    }
+
+    button {
+      width: 100%;
+      padding: 16px;
+      border: none;
+      border-radius: 50px;
+      background: linear-gradient(90deg, var(--primary), #00e676);
+      color: white;
+      font-weight: 700;
+      font-size: 1.1rem;
+      cursor: pointer;
+      margin-top: 10px;
+      box-shadow: 0 8px 25px rgba(0, 200, 83, 0.4);
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    button:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 15px 35px rgba(0, 200, 83, 0.5);
+    }
+
+    button::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 40%;
+      height: 200%;
+      background: linear-gradient(120deg, transparent, rgba(255,255,255,0.4), transparent);
+      transform: skewX(-25deg);
+      animation: shimmer 4s infinite;
+    }
+
+    #output {
+      margin-top: 20px;
+      font-weight: 600;
+      min-height: 28px;
+      transition: all 0.4s ease;
+    }
+
+    /* Animations */
+    @keyframes headerSlide {
+      from { transform: translateY(-50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes floatOrb {
+      0% { transform: translate(0, 0) rotate(0deg); }
+      50% { transform: translate(60px, 80px) rotate(180deg); }
+      100% { transform: translate(0, 0) rotate(360deg); }
+    }
+
+    @keyframes shimmer {
+      100% { transform: translateX(400%); }
+    }
+
+    /* Success Message */
+    .success { color: var(--primary) !important; animation: pop 0.6s; }
+    .error { color: #d32f2f !important; }
+
+    @keyframes pop {
+      0% { transform: scale(0.6); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <h1 class="title">
+      <img src="favicon.png" class="img1" alt="logo" /> 
+      Profay Codesite
+    </h1>
+
+    <div class="container">
+      <h3>Welcome Back 👋</h3>
+
+      <form onsubmit="signin(event)">
+        <div class="input-group">
+          <i class="fas fa-user"></i>
+          <input id="name" type="text" placeholder="Enter your name" required>
+        </div>
+
+        <div class="input-group">
+          <i class="fas fa-envelope"></i>
+          <input id="email" type="email" placeholder="Enter your email" required>
+        </div>
+
+        <div class="input-group">
+          <i class="fas fa-lock"></i>
+          <input id="password" type="password" placeholder="Enter password" required>
+        </div>
+
+        <button type="submit">Sign In <i class="fas fa-arrow-right"></i></button>
+      </form>
+
+      <p id="output"></p>
+    </div>
+  </div>
+
+  <script>
+    function signin(event) {
+      event.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
+      const output = document.getElementById("output");
+
+      if (name && email && password) {
+        // Save user data
+        localStorage.setItem("userName", name);
+        localStorage.setItem("userEmail", email);
+
+        output.className = "success";
+        output.innerHTML = `✅ Login successful, ${name}! 🚀`;
+
+        // Redirect after success
+        setTimeout(() => {
+          window.location.href = "main.html";
+        }, 1200);
+
+      } else {
+        output.className = "error";
+        output.innerHTML = "⚠️ Please fill all fields.";
+      }
+    }
+  </script>
+</body>
+</html>
