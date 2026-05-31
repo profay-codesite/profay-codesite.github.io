@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Lessons | Profay Codesite</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.png" type="image/png">
+  
+  <style>
+    :root {
+      --green: #00cc88;
+      --dark-green: #008866;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #ffffff;
+      color: #333333;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+    .header {
+      background: white;
+      padding: 1.5rem 0;
+      text-align: center;
+      border-bottom: 4px solid var(--green);
+      box-shadow: 0 2px 10px rgba(0, 204, 136, 0.1);
+    }
+    .logo {
+      width: 180px;
+      margin-bottom: 10px;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    h1, h2, h3 {
+      color: var(--dark-green);
+      margin: 1.5rem 0 1rem;
+    }
+    .lesson-card {
+      background: #f8fffb;
+      border: 2px solid var(--green);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 8px 25px rgba(0, 204, 136, 0.08);
+    }
+    .try-it {
+      background: #f8fffb;
+      border: 2px solid var(--green);
+      border-radius: 10px;
+      margin: 1.5rem 0;
+      overflow: hidden;
+    }
+    .editor {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    textarea {
+      width: 100%;
+      height: 280px;
+      background: #f0f8f4;
+      color: #006644;
+      font-family: 'Courier New', monospace;
+      padding: 1rem;
+      border: 1px solid var(--green);
+      resize: vertical;
+      font-size: 15px;
+    }
+    .preview {
+      border: 2px solid var(--green);
+      padding: 2rem;
+      background: white;
+      min-height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+    }
+    button {
+      background: var(--green);
+      color: white;
+      border: none;
+      padding: 12px 28px;
+      margin: 10px 5px;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    button:hover {
+      background: #00e699;
+      transform: translateY(-2px);
+    }
+    .code {
+      background: #f0f8f4;
+      padding: 1rem;
+      border-radius: 8px;
+      font-family: 'Courier New', monospace;
+      color: #006644;
+      overflow-x: auto;
+      border-left: 5px solid var(--green);
+    }
+    .nav {
+      text-align: center;
+      margin: 30px 0;
+    }
+    .nav a {
+      color: var(--green);
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .nav a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <img src="favicon.png" alt="Profay Codesite Logo" class="logo">
+    <h1 style="color: var(--dark-green);">Profay Codesite</h1>
+    <p style="color: #006644; font-size: 1.1rem;">Learn Programming From Zero To Hero 🚀</p>
+  </div>
+
+  <div class="container">
+    <h1>🎨 CSS Lessons - Styling the Web</h1>
+    <p>CSS (Cascading Style Sheets) is used to control the look and feel of your HTML pages. Let's make your websites beautiful!</p>
+
+    <!-- Lesson 1 -->
+    <div class="lesson-card">
+      <h2>1. What is CSS?</h2>
+      <p><strong>CSS</strong> stands for <strong>Cascading Style Sheets</strong>. It describes how HTML elements should be displayed on screen.</p>
+      <div class="code">
+        /* Example CSS */
+        body {<br>
+        &nbsp;&nbsp;background: white;<br>
+        &nbsp;&nbsp;color: #333;<br>
+        }<br>
+        h1 {<br>
+        &nbsp;&nbsp;color: #00cc88;<br>
+        }
+      </div>
+    </div>
+
+    <!-- Try it Yourself -->
+    <div class="lesson-card">
+      <h2>Try It Yourself - Live CSS Editor</h2>
+      <p>Edit the CSS below and see changes instantly!</p>
+      <div class="try-it editor">
+        <div>
+          <strong>HTML</strong>
+          <textarea id="htmlEditor" spellcheck="false">&lt;h1&gt;Welcome to Profay Codesite!&lt;/h1&gt;
+&lt;p&gt;I am learning CSS and it looks amazing! 🚀&lt;/p&gt;
+&lt;button&gt;Click Me&lt;/button&gt;</textarea>
+        </div>
+        <div>
+          <strong>CSS</strong>
+          <textarea id="cssEditor" spellcheck="false">h1 {
+  color: #00cc88;
+  text-align: center;
+}
+
+p {
+  font-size: 1.2rem;
+  color: #006644;
+}
+
+button {
+  background: #00cc88;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #00e699;
+  transform: scale(1.05);
+}</textarea>
+        </div>
+      </div>
+      <button onclick="runCSS()">▶ Run CSS</button>
+      <div class="preview" id="preview">
+        <h1>Welcome to Profay Codesite!</h1>
+        <p>I am learning CSS and it looks amazing! 🚀</p>
+        <button>Click Me</button>
+      </div>
+    </div>
+
+    <!-- More Lessons -->
+    <div class="lesson-card">
+      <h2>2. Common CSS Properties</h2>
+      <ul>
+        <li><code>color</code> — Text color</li>
+        <li><code>background</code> — Background color/image</li>
+        <li><code>font-size</code>, <code>font-family</code> — Typography</li>
+        <li><code>margin</code>, <code>padding</code> — Spacing</li>
+        <li><code>border</code>, <code>border-radius</code> — Borders &amp; corners</li>
+        <li><code>display</code>, <code>flex</code> — Layout control</li>
+      </ul>
+    </div>
+
+    <div class="lesson-card">
+      <h2>3. How to Connect CSS to HTML</h2>
+      <div class="code">
+        &lt;!-- External CSS --&gt;<br>
+        &lt;link rel="stylesheet" href="style.css"&gt;<br><br>
+        &lt;!-- Internal CSS --&gt;<br>
+        &lt;style&gt;<br>
+        &nbsp;&nbsp;h1 { color: green; }<br>
+        &lt;/style&gt;
+      </div>
+    </div>
+
+    <div class="nav">
+      
+      <a href="https://profay-codesite.github.io/main.html"><button class="btn">Back to Home</button></a>
+      <a href="https://w3schools.com/css"><button class="btn">Learn more</button></a>
+    </div>
+  </div>
+
+  <script>
+    function runCSS() {
+      const html = document.getElementById('htmlEditor').value;
+      const css = document.getElementById('cssEditor').value;
+      const preview = document.getElementById('preview');
+      
+      preview.innerHTML = html;
+      
+      // Remove old style
+      let styleTag = document.getElementById('dynamic-style');
+      if (styleTag) styleTag.remove();
+      
+      // Add new style
+      styleTag = document.createElement('style');
+      styleTag.id = 'dynamic-style';
+      styleTag.textContent = css;
+      document.head.appendChild(styleTag);
+    }
+  </script>
+</body>
+</html>

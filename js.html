@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Lessons | Profay Codesite</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.png" type="image/png">
+  
+  <style>
+    :root {
+      --green: #00cc88;
+      --dark-green: #008866;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #ffffff;
+      color: #333333;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+    .header {
+      background: white;
+      padding: 1.5rem 0;
+      text-align: center;
+      border-bottom: 4px solid var(--green);
+      box-shadow: 0 2px 10px rgba(0, 204, 136, 0.1);
+    }
+    .logo {
+      width: 180px;
+      margin-bottom: 10px;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    h1, h2, h3 {
+      color: var(--dark-green);
+      margin: 1.5rem 0 1rem;
+    }
+    .lesson-card {
+      background: #f8fffb;
+      border: 2px solid var(--green);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 8px 25px rgba(0, 204, 136, 0.08);
+    }
+    .try-it {
+      background: #f8fffb;
+      border: 2px solid var(--green);
+      border-radius: 10px;
+      margin: 1.5rem 0;
+      overflow: hidden;
+    }
+    .editor {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+    textarea {
+      width: 100%;
+      height: 300px;
+      background: #f0f8f4;
+      color: #006644;
+      font-family: 'Courier New', monospace;
+      padding: 1rem;
+      border: 1px solid var(--green);
+      resize: vertical;
+      font-size: 15px;
+    }
+    .preview {
+      border: 2px solid var(--green);
+      padding: 2rem;
+      background: white;
+      min-height: 300px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    .console {
+      background: #001a11;
+      color: #00ffaa;
+      padding: 1rem;
+      font-family: 'Courier New', monospace;
+      min-height: 120px;
+      border-radius: 6px;
+      overflow-y: auto;
+    }
+    button {
+      background: var(--green);
+      color: white;
+      border: none;
+      padding: 12px 28px;
+      margin: 10px 5px;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    button:hover {
+      background: #00e699;
+      transform: translateY(-2px);
+    }
+    .code {
+      background: #f0f8f4;
+      padding: 1rem;
+      border-radius: 8px;
+      font-family: 'Courier New', monospace;
+      color: #006644;
+      overflow-x: auto;
+      border-left: 5px solid var(--green);
+    }
+    .nav {
+      text-align: center;
+      margin: 30px 0;
+    }
+    .nav a {
+      color: var(--green);
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .nav a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <img src="favicon.png" alt="Profay Codesite Logo" class="logo">
+    <h1 style="color: var(--dark-green);">Profay Codesite</h1>
+    <p style="color: #006644; font-size: 1.1rem;">Learn Programming From Zero To Hero 🚀</p>
+  </div>
+
+  <div class="container">
+    <h1>⚡ JavaScript Lessons - Making Websites Interactive</h1>
+    <p>JavaScript (JS) brings your websites to life! It allows you to add interactivity, animations, form validation, and dynamic content.</p>
+
+    <!-- Lesson 1 -->
+    <div class="lesson-card">
+      <h2>1. What is JavaScript?</h2>
+      <p><strong>JavaScript</strong> is a programming language that makes web pages interactive. It runs in the browser and works together with HTML and CSS.</p>
+      <div class="code">
+        // Your first JavaScript code<br>
+        console.log("Hello from Profay Codesite! 🚀");<br><br>
+        alert("Welcome to JavaScript!");
+      </div>
+    </div>
+
+    <!-- Try it Yourself -->
+    <div class="lesson-card">
+      <h2>Try It Yourself - Live JavaScript Editor</h2>
+      <p>Write JavaScript code below and click "Run" to see it in action!</p>
+      
+      <div class="try-it editor">
+        <div>
+          <strong>HTML</strong>
+          <textarea id="htmlEditor" spellcheck="false">&lt;h1 id="title"&gt;Welcome to Profay Codesite!&lt;/h1&gt;
+&lt;p id="message"&gt;Click the button to change me!&lt;/p&gt;
+&lt;button onclick="changeText()"&gt;Change Text&lt;/button&gt;</textarea>
+        </div>
+        <div>
+          <strong>JavaScript</strong>
+          <textarea id="jsEditor" spellcheck="false">function changeText() {
+  document.getElementById("title").style.color = "#00cc88";
+  document.getElementById("message").innerHTML = "JavaScript is awesome! 🚀";
+  console.log("Button clicked - Text changed!");
+}</textarea>
+        </div>
+      </div>
+      
+      <button onclick="runJS()">▶ Run JavaScript</button>
+      
+      <div class="preview" id="preview">
+        <h1 id="title">Welcome to Profay Codesite!</h1>
+        <p id="message">Click the button to change me!</p>
+        <button onclick="changeText()">Change Text</button>
+      </div>
+      
+      <div class="console" id="consoleOutput">
+        <strong>Console Output:</strong><br>
+        (Results will appear here)
+      </div>
+    </div>
+
+    <!-- More Lessons -->
+    <div class="lesson-card">
+      <h2>2. Basic JavaScript Concepts</h2>
+      <ul>
+        <li><code>console.log()</code> — Print to console</li>
+        <li><code>let</code>, <code>const</code>, <code>var</code> — Variables</li>
+        <li><code>function name() {}</code> — Functions</li>
+        <li><code>if (condition) {}</code> — Conditionals</li>
+        <li><code>document.getElementById()</code> — DOM Manipulation</li>
+      </ul>
+    </div>
+
+    <div class="lesson-card">
+      <h2>3. How to Add JavaScript to HTML</h2>
+      <div class="code">
+        &lt;!-- External JS --&gt;<br>
+        &lt;script src="script.js"&gt;&lt;/script&gt;<br><br>
+        &lt;!-- Internal JS --&gt;<br>
+        &lt;script&gt;<br>
+        &nbsp;&nbsp;console.log("Hello World!");<br>
+        &lt;/script&gt;
+      </div>
+    </div>
+
+    <div class="nav">
+      
+      <a href="https://profay-codesite.github.io/"><button class="btn">Back to home</button></a>
+      <a href="https://w3schools.com/js"><button class="btn">Learn more</button></a>
+    </div>
+  </div>
+
+  <script>
+    function runJS() {
+      const html = document.getElementById('htmlEditor').value;
+      const js = document.getElementById('jsEditor').value;
+      const preview = document.getElementById('preview');
+      const consoleArea = document.getElementById('consoleOutput');
+      
+      // Update preview with HTML
+      preview.innerHTML = html;
+      
+      // Clear previous console
+      consoleArea.innerHTML = '<strong>Console Output:</strong><br>';
+      
+      // Override console.log for this session
+      const originalLog = console.log;
+      console.log = function(message) {
+        consoleArea.innerHTML += message + '<br>';
+        originalLog(message);
+      };
+      
+      // Run the JavaScript
+      try {
+        eval(js);
+      } catch (error) {
+        consoleArea.innerHTML += `<span style="color: red;">Error: ${error.message}</span>`;
+      }
+      
+      // Restore original console
+      console.log = originalLog;
+    }
+  </script>
+</body>
+</html>
