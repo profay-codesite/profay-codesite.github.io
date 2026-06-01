@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+  <meta name="keywords" content="Programming, HTML, CSS, JavaScript, Web Development, Coding" />
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon.png">
+  <title>Profay Codesite</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+
+  <style>
+    :root {
+      --primary: #00c853;
+      --primary-dark: #00b140;
+      --accent: #69f0ae;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: linear-gradient(135deg, #f0fff0 0%, #e8f8e8 100%);
+      color: #222;
+      font-family: 'Poppins', sans-serif;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    /* Enhanced Scrollbar */
+    ::-webkit-scrollbar { width: 10px; }
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(var(--primary), var(--accent));
+      border-radius: 20px;
+    }
+
+    /* HEADER */
+    .top-bar {
+      background: rgba(0, 128, 0, 0.95);
+      backdrop-filter: blur(12px);
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      animation: headerSlide 1.2s ease;
+    }
+
+    .top-bar h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.6rem, 5vw, 2.4rem);
+      padding: 18px 20px 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      animation: glow 3s infinite alternate;
+    }
+
+    .img1 {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      transition: transform 0.4s ease;
+    }
+
+    .img1:hover { transform: rotate(15deg) scale(1.12);
+    
+    }
+    
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      padding: 0 20px 20px;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      padding: 10px 22px;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: all 0.4s ease;
+      border: 2px solid rgba(255,255,255,0.2);
+      white-space: nowrap;
+    }
+
+    .navbar a:hover {
+      background: white;
+      color: var(--primary-dark);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+
+    /* Welcome Marquee Replacement */
+    .welcome-bar {
+      background: rgba(255,255,255,0.15);
+      padding: 12px 0;
+      text-align: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    #welcomeUser {
+      display: inline-block;
+      color: white;
+      font-weight: 600;
+      animation: marquee 25s linear infinite;
+      white-space: nowrap;
+    }
+
+    /* HERO */
+    .hero {
+      text-align: center;
+      padding: clamp(80px, 14vh, 140px) 20px 100px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before, .hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(105,240,174,0.25), transparent);
+      animation: floatOrb 18s infinite linear;
+    }
+
+    .hero::before {
+      width: 350px; height: 350px;
+      top: -100px; left: -100px;
+    }
+    .hero::after {
+      width: 280px; height: 280px;
+      bottom: -80px; right: -80px;
+      animation-delay: -9s;
+    }
+
+    .hero h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2.4rem, 8vw, 4rem);
+      color: var(--primary-dark);
+      margin-bottom: 20px;
+      animation: heroPop 1.5s ease;
+    }
+
+    .hero p {
+      max-width: 780px;
+      margin: 0 auto;
+      font-size: clamp(1.1rem, 3.5vw, 1.35rem);
+      line-height: 1.8;
+    }
+
+    /* SECTIONS */
+    .section-title {
+      text-align: center;
+      font-size: clamp(2rem, 6vw, 2.8rem);
+      color: var(--primary-dark);
+      margin: 60px 0 40px;
+      font-family: 'Space Grotesk', sans-serif;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90px;
+      height: 5px;
+      background: linear-gradient(to right, var(--primary), var(--accent));
+      border-radius: 3px;
+    }
+
+    /* Stack Boxes */
+    .stack-box {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 28px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .tech {
+      background: white;
+      padding: 32px 20px;
+      border-radius: 28px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      border-top: 6px solid var(--primary);
+    }
+
+    .tech:hover {
+      transform: translateY(-18px) scale(1.05);
+      box-shadow: 0 25px 45px rgba(0,200,83,0.25);
+    }
+
+    .tech i {
+      font-size: 3.2rem;
+      color: var(--primary);
+      margin-bottom: 16px;
+    }
+
+    /* Lesson Cards */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 28px;
+      padding: 20px;
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+
+    .card {
+      padding: 35px 25px;
+      border-radius: 28px;
+      color: white;
+      text-align: center;
+      transition: all 0.5s ease;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 60%;
+      height: 200%;
+      background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
+      transform: skewX(-25deg);
+      animation: shimmer 5s infinite;
+    }
+
+    .card.green { background: linear-gradient(135deg, #00c853, #00a140); }
+    .card.light { 
+      background: linear-gradient(135deg, #a7ff8f, #69f0ae); 
+      color: #004d00; 
+    }
+
+    .card:hover {
+      transform: translateY(-20px) scale(1.04);
+    }
+
+    .card h3 {
+      font-size: clamp(1.5rem, 4.5vw, 2rem);
+      margin-bottom: 18px;
+    }
+
+    .btn {
+      margin-top: 20px;
+      padding: 12px 28px;
+      background: white;
+      color: var(--primary-dark);
+      border-radius: 50px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.4s ease;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    }
+
+    .card.light .btn { color: #004d00; }
+
+    .btn:hover {
+      transform: scale(1.08);
+      background: var(--accent);
+    }
+
+    /* Contact */
+    .contact {
+      padding: 80px 20px;
+      text-align: center;
+      background: linear-gradient(135deg, rgba(0,200,83,0.08), transparent);
+    }
+
+    /* Footer */
+    footer {
+      background: linear-gradient(90deg, var(--primary-dark), var(--primary));
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 1rem;
+    }
+
+    /* ANIMATIONS */
+    @keyframes headerSlide {
+      from { transform: translateY(-100%); }
+      to { transform: translateY(0); }
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 10px white; }
+      to { text-shadow: 0 0 25px var(--accent); }
+    }
+
+    @keyframes heroPop {
+      0% { opacity: 0; transform: scale(0.7) translateY(50px); }
+      70% { transform: scale(1.05) translateY(-10px); }
+      100% { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
+    @keyframes floatOrb {
+      0% { transform: translate(0, 0) rotate(0deg); }
+      50% { transform: translate(80px, 100px) rotate(180deg); }
+      100% { transform: translate(0, 0) rotate(360deg); }
+    }
+
+    @keyframes marquee {
+      from { transform: translateX(100%); }
+      to { transform: translateX(-100%); }
+    }
+
+    @keyframes shimmer {
+      100% { transform: translateX(300%); }
+    }
+
+    /* Staggered Animation */
+    .tech, .card {
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeInUp 0.8s forwards;
+    }
+
+    @keyframes fadeInUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .email{
+      width: 80px; 
+      height: 100px;
+    }
+    #lessons{
+      animation: fadeIn 2s ease;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="top-bar">
+    <h2>
+      <img src="favicon.png" class="img1" alt="logo" />
+      Profay Codesite
+    </h2>
+
+    <div class="navbar">
+      <a href="#" style="background:rgba(255,255,255,0.2);">Home</a>
+      <a href="#lessons">Lessons</a>
+      <a href="#contact">Contact</a>
+      <a onclick="logout()" style="color:#ffcccc; cursor:pointer;">Logout</a>
+    </div>
+
+    <div class="welcome-bar">
+      <p id="welcomeUser"></p>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1>Grow Your Front-End Career Here 🚀</h1>
+    <p>
+      Master HTML, CSS, JavaScript, React, Vue, Node.js and more with beginner-friendly lessons and resources.
+    </p>
+  </section>
+
+  <section class="stack">
+    <h2 class="section-title">⚡ JavaScript Ecosystem</h2>
+    <div class="stack-box">
+      <div class="tech" style="animation-delay: 100ms;"><i class="fa-brands fa-node-js"></i><h3>Node.js</h3><p>Server-side JavaScript</p></div>
+      <div class="tech" style="animation-delay: 200ms;"><i class="fa-solid fa-bolt"></i><h3>Express</h3><p>Fast backend framework</p></div>
+      <div class="tech" style="animation-delay: 300ms;"><i class="fa-brands fa-react"></i><h3>React</h3><p>Modern UI Library</p></div>
+      <div class="tech" style="animation-delay: 400ms;"><i class="fa-brands fa-vuejs"></i><h3>Vue</h3><p>Progressive Framework</p></div>
+      <div class="tech" style="animation-delay: 500ms;"><i class="fa-solid fa-database"></i><h3>MongoDB</h3><p>NoSQL Database</p></div>
+    </div>
+  </section>
+
+  <section id="lessons">
+    <h2 class="section-title">💻 Lessons</h2>
+    <div class="cards">
+      <div class="card green" style="animation-delay: 100ms;">
+        <h3>HTML</h3>
+        <p>A language for building websites.</p>
+        <a href="html.html" class="btn" target="_blank">Start Learning →</a>
+      </div>
+      <div class="card light" style="animation-delay: 200ms;">
+        <h3>CSS</h3>
+        <p>Style beautiful and responsive websites.</p>
+        <a href="css.html" class="btn" target="_blank">Start Learning →</a>
+      </div>
+      <div class="card green" style="animation-delay: 300ms;">
+        <h3>JavaScript</h3>
+        <p>Add interactivity and logic.</p>
+        <a href="js.html" class="btn" target="_blank">Start Learning →</a>
+      </div>
+      <div class="card light" style="animation-delay: 400ms;">
+        <h3>React</h3>
+        <p>Build modern user interfaces.</p>
+        <a href="react.html" class="btn" target="_blank">Start Learning →</a>
+      </div>
+      <div class="card green" style="animation-delay: 500ms;">
+        <h3>Vue</h3>
+        <p>Simple and powerful framework.</p>
+        <a href="vue.html" class="btn" target="_blank">Start Learning →</a>
+      </div>
+      <div class="card light" style="animation-delay: 600ms;">
+        <h3>Node.js</h3>
+        <p>Backend JavaScript runtime.</p>
+        <a href="node.html" class="btn" target="_blank">Start Learning →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <h2 class="section-title">Get In Touch</h2>
+    <p style="max-width: 700px; margin: 0 auto 40px;">
+      Join our communities for more tutorials, tips, and updates from zero to hero.
+    </p>
+    <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+      <a href="https://t.me/programming_school_online" target="_blank" class="btn" style="background:white; color:var(--primary-dark); padding:14px 32px;">Telegram</a>
+      <a href="https://whatsapp.com/channel/0029VbC5tTd1XqueVtFr6B0r" target="_blank" class="btn" style="background:white; color:var(--primary-dark); padding:14px 32px;">WhatsApp</a>
+    </div>
+    <div style="margin-top: 40px;">
+      <a href="mailto:promisefrimpong1310@gmail.com" target="_blank" class="email" style="color:var(--primary-dark); font-weight:600; text-decoration: none; background: white; box-shadow: 0 15px 35px rgba(0,0,0,0.15); border-radius:2em; padding:14px 32px;">Email us✉️</a>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Profay Codesite | Built with ❤️ using HTML, CSS & JavaScript
+  </footer>
+
+  <script>
+    (function() {
+      const user = localStorage.getItem("userName");
+      const welcomeElement = document.getElementById("welcomeUser");
+
+      if (!user) {
+        window.location.href = "signup.html";
+      } else {
+        welcomeElement.innerHTML = `👋 Hi ${user}! Welcome back to Profay Codesite - Start Learning Today!`;
+      }
+
+      window.logout = function() {
+        alert(user+', you need to sign in before you can continue to Profay Codesite!')
+        localStorage.removeItem("userName");
+        localStorage.removeItem("userEmail");
+        window.location.href = "signup.html";
+      };
+    })();
+  </script>
+</body>
+</html>

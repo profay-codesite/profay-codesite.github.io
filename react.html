@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>React Lessons | Profay Codesite</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.png" type="image/png">
+  
+  <style>
+    :root {
+      --green: #00cc88;
+      --dark-green: #008866;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #ffffff;
+      color: #333333;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+    .header {
+      background: white;
+      padding: 1.5rem 0;
+      text-align: center;
+      border-bottom: 4px solid var(--green);
+      box-shadow: 0 2px 10px rgba(0, 204, 136, 0.1);
+    }
+    .logo {
+      width: 180px;
+      margin-bottom: 10px;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    h1, h2, h3 {
+      color: var(--dark-green);
+      margin: 1.5rem 0 1rem;
+    }
+    .lesson-card {
+      background: #f8fffb;
+      border: 2px solid var(--green);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 8px 25px rgba(0, 204, 136, 0.08);
+    }
+    .try-it {
+      background: #f8fffb;
+      border: 2px solid var(--green);
+      border-radius: 10px;
+      margin: 1.5rem 0;
+      padding: 1.5rem;
+    }
+    .code {
+      background: #f0f8f4;
+      padding: 1rem;
+      border-radius: 8px;
+      font-family: 'Courier New', monospace;
+      color: #006644;
+      overflow-x: auto;
+      border-left: 5px solid var(--green);
+      margin: 1rem 0;
+    }
+    .note {
+      background: #e6fff0;
+      border-left: 5px solid var(--green);
+      padding: 1rem;
+      margin: 1.5rem 0;
+    }
+    button {
+      background: var(--green);
+      color: white;
+      border: none;
+      padding: 12px 28px;
+      margin: 10px 5px;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    button:hover {
+      background: #00e699;
+      transform: translateY(-2px);
+    }
+    .nav {
+      text-align: center;
+      margin: 30px 0;
+    }
+    .nav a {
+      color: var(--green);
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .nav a:hover {
+      text-decoration: underline;
+    }
+    .preview {
+      border: 2px solid var(--green);
+      padding: 2rem;
+      background: white;
+      min-height: 200px;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <img src="favicon.png" alt="Profay Codesite Logo" class="logo">
+    <h1 style="color: var(--dark-green);">Profay Codesite</h1>
+    <p style="color: #006644; font-size: 1.1rem;">Learn Programming From Zero To Hero 🚀</p>
+  </div>
+
+  <div class="container">
+    <h1>⚛️ React Lessons - Build Modern Web Apps</h1>
+    <p><strong>React</strong> is a powerful JavaScript library for building fast, interactive user interfaces. Created by Facebook, it's used by companies like Netflix, Airbnb, and Instagram.</p>
+
+    <!-- Lesson 1 -->
+    <div class="lesson-card">
+      <h2>1. What is React?</h2>
+      <p>React lets you build complex UIs from small, reusable pieces called <strong>Components</strong>. It uses a virtual DOM for high performance.</p>
+      <div class="code">
+        // JSX - JavaScript + HTML<br>
+        function Welcome() {<br>
+        &nbsp;&nbsp;return &lt;h1&gt;Hello from Profay Codesite! 🚀&lt;/h1&gt;;<br>
+        }
+      </div>
+    </div>
+
+    <!-- Try it Yourself -->
+    <div class="lesson-card">
+      <h2>Try It Yourself - React Concepts</h2>
+      <p>While full React needs a development environment (Vite/Create React App), here's a simple interactive demo:</p>
+      
+      <div class="try-it">
+        <h3>Live Counter Example</h3>
+        <div class="preview" id="reactPreview">
+          <h2>Count: 0</h2>
+          <button onclick="increment()">+1</button>
+          <button onclick="decrement()">-1</button>
+          <button onclick="reset()">Reset</button>
+        </div>
+        <p><small>This simulates a basic React state example. Real React uses <code>useState</code>.</small></p>
+      </div>
+    </div>
+
+    <!-- More Lessons -->
+    <div class="lesson-card">
+      <h2>2. Key React Concepts</h2>
+      <ul>
+        <li><strong>JSX</strong> — JavaScript Syntax Extension (HTML in JS)</li>
+        <li><strong>Components</strong> — Reusable building blocks</li>
+        <li><strong>Props</strong> — Passing data between components</li>
+        <li><strong>State</strong> — Managing dynamic data (<code>useState</code>)</li>
+        <li><strong>Hooks</strong> — Special functions for React features</li>
+        <li><strong>Virtual DOM</strong> — Efficient updates</li>
+      </ul>
+    </div>
+
+    <div class="lesson-card">
+      <h2>3. How to Set Up React</h2>
+      <div class="code">
+        # Using Vite (Recommended)<br>
+        npm create vite@latest my-app -- --template react<br>
+        cd my-app<br>
+        npm install<br>
+        npm run dev
+      </div>
+      <div class="note">
+        <strong>Tip:</strong> You can practice React for free on:
+        <a href="https://codesandbox.io/" target="_blank">CodeSandbox</a> or 
+        <a href="https://stackblitz.com/" target="_blank">StackBlitz</a>
+      </div>
+    </div>
+
+    <div class="lesson-card">
+      <h2>4. Your First React Component</h2>
+      <div class="code">
+        import React from 'react';<br><br>
+        function App() {<br>
+        &nbsp;&nbsp;return (<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h1 style=&#123;&#123;color: '#00cc88'&#125;&#125;&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Welcome to Profay Codesite!<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/h1&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
+        &nbsp;&nbsp;);<br>
+        }<br><br>
+        export default App;
+      </div>
+    </div>
+
+    <div class="nav">
+      
+      <a href="https://profay-codesite.github.io/main.html"><button class="btn">Back to Home</button></a>
+      <a href="https://w3schools.com/react"><button class="btn">Learn more</button></a>
+    </div>
+  </div>
+
+  <script>
+    // Simple counter simulation
+    let count = 0;
+    function increment() {
+      count++;
+      document.getElementById('reactPreview').querySelector('h2').textContent = `Count: ${count}`;
+    }
+    function decrement() {
+      count--;
+      document.getElementById('reactPreview').querySelector('h2').textContent = `Count: ${count}`;
+    }
+    function reset() {
+      count = 0;
+      document.getElementById('reactPreview').querySelector('h2').textContent = `Count: ${count}`;
+    }
+  </script>
+</body>
+</html>

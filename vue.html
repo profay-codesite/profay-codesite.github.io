@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue.js Lessons | Profay Codesite</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.png" type="image/png">
+  
+  <style>
+    :root {
+      --green: #00cc88;
+      --dark-green: #008866;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #ffffff;
+      color: #333333;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+    .header {
+      background: white;
+      padding: 1.5rem 0;
+      text-align: center;
+      border-bottom: 4px solid var(--green);
+      box-shadow: 0 2px 10px rgba(0, 204, 136, 0.1);
+    }
+    .logo {
+      width: 180px;
+      margin-bottom: 10px;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    h1, h2, h3 {
+      color: var(--dark-green);
+      margin: 1.5rem 0 1rem;
+    }
+    .lesson-card {
+      background: #f8fffb;
+      border: 2px solid var(--green);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 8px 25px rgba(0, 204, 136, 0.08);
+    }
+    .try-it {
+      background: #f8fffb;
+      border: 2px solid var(--green);
+      border-radius: 10px;
+      margin: 1.5rem 0;
+      padding: 1.5rem;
+    }
+    .code {
+      background: #f0f8f4;
+      padding: 1rem;
+      border-radius: 8px;
+      font-family: 'Courier New', monospace;
+      color: #006644;
+      overflow-x: auto;
+      border-left: 5px solid var(--green);
+      margin: 1rem 0;
+    }
+    .note {
+      background: #e6fff0;
+      border-left: 5px solid var(--green);
+      padding: 1rem;
+      margin: 1.5rem 0;
+    }
+    button {
+      background: var(--green);
+      color: white;
+      border: none;
+      padding: 12px 28px;
+      margin: 10px 5px;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    button:hover {
+      background: #00e699;
+      transform: translateY(-2px);
+    }
+    .nav {
+      text-align: center;
+      margin: 30px 0;
+    }
+    .nav a {
+      color: var(--green);
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .nav a:hover {
+      text-decoration: underline;
+    }
+    .preview {
+      border: 2px solid var(--green);
+      padding: 2rem;
+      background: white;
+      min-height: 250px;
+      margin-top: 1rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <img src="favicon.png" alt="Profay Codesite Logo" class="logo">
+    <h1 style="color: var(--dark-green);">Profay Codesite</h1>
+    <p style="color: #006644; font-size: 1.1rem;">Learn Programming From Zero To Hero 🚀</p>
+  </div>
+
+  <div class="container">
+    <h1>🌿 Vue.js Lessons - The Progressive JavaScript Framework</h1>
+    <p><strong>Vue.js</strong> (pronounced "view") is a progressive JavaScript framework for building user interfaces. It's lightweight, easy to learn, and perfect for both small projects and large-scale applications.</p>
+
+    <!-- Lesson 1 -->
+    <div class="lesson-card">
+      <h2>1. What is Vue.js?</h2>
+      <p>Vue.js makes it easy to create reactive and composable UI components. It has excellent documentation and a gentle learning curve compared to other frameworks.</p>
+      <div class="code">
+        // Vue CDN Example<br>
+        &lt;div id="app"&gt;<br>
+        &nbsp;&nbsp;{{ message }}<br>
+        &lt;/div&gt;<br><br>
+        const { createApp } = Vue;<br>
+        createApp({<br>
+        &nbsp;&nbsp;data() {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;return { message: "Hello from Profay Codesite! 🚀" }<br>
+        &nbsp;&nbsp;}<br>
+        }).mount('#app');
+      </div>
+    </div>
+
+    <!-- Try it Yourself -->
+    <div class="lesson-card">
+      <h2>Try It Yourself - Live Vue Demo</h2>
+      <p>Interactive Vue example using CDN (no installation needed):</p>
+      
+      <div class="try-it">
+        <div id="vueApp" class="preview">
+          <h2>{{ message }}</h2>
+          <p>Count: {{ count }}</p>
+          <button @click="increment">+ Increment</button>
+          <button @click="decrement">- Decrement</button>
+          <button @click="reset">Reset</button>
+        </div>
+      </div>
+      <p><small>This is a real Vue 3 app running in your browser!</small></p>
+    </div>
+
+    <!-- More Lessons -->
+    <div class="lesson-card">
+      <h2>2. Key Vue Concepts</h2>
+      <ul>
+        <li><strong>Directives</strong> — <code>v-if</code>, <code>v-for</code>, <code>v-bind</code>, <code>v-on</code></li>
+        <li><strong>Reactivity</strong> — Automatic UI updates</li>
+        <li><strong>Components</strong> — Reusable UI pieces</li>
+        <li><strong>Props &amp; Events</strong> — Component communication</li>
+        <li><strong>Composition API</strong> — Modern way with <code>setup()</code></li>
+        <li><strong>Vue Router &amp; Pinia</strong> — Routing and state management</li>
+      </ul>
+    </div>
+
+    <div class="lesson-card">
+      <h2>3. How to Set Up Vue.js</h2>
+      <div class="code">
+        # Using Vite (Recommended)<br>
+        npm create vue@latest my-vue-app<br>
+        cd my-vue-app<br>
+        npm install<br>
+        npm run dev
+      </div>
+      <div class="note">
+        <strong>Tip:</strong> You can also try Vue instantly on 
+        <a href="https://vue.new/" target="_blank">vue.new</a> or 
+        <a href="https://play.vuejs.org/" target="_blank">Vue Playground</a>
+      </div>
+    </div>
+
+    <div class="lesson-card">
+      <h2>4. Your First Vue Component</h2>
+      <div class="code">
+        &lt;script setup&gt;<br>
+        import { ref } from 'vue';<br>
+        const count = ref(0);<br>
+        &lt;/script&gt;<br><br>
+        &lt;template&gt;<br>
+        &nbsp;&nbsp;&lt;h1 style="color: #00cc88;"&gt;Profay Codesite&lt;/h1&gt;<br>
+        &nbsp;&nbsp;&lt;p&gt;Count: {{ count }}&lt;/p&gt;<br>
+        &nbsp;&nbsp;&lt;button @click="count++"&gt;Increment&lt;/button&gt;<br>
+        &lt;/template&gt;
+      </div>
+    </div>
+
+    <div class="nav">
+     
+      <a href="https://profay-codesite.github.io/"><button class="btn">Back to home</button></a>
+      <a href="https://w3schools.com/vue"><button class="btn">Learn more</button></a>
+    </div>
+  </div>
+
+  <!-- Vue CDN Script -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+  <script>
+    // Initialize Vue App
+    const { createApp } = Vue;
+    
+    createApp({
+      data() {
+        return {
+          message: "Welcome to Profay Codesite with Vue! 🌿",
+          count: 0
+        };
+      },
+      methods: {
+        increment() {
+          this.count++;
+        },
+        decrement() {
+          this.count--;
+        },
+        reset() {
+          this.count = 0;
+        }
+      }
+    }).mount('#vueApp');
+  </script>
+</body>
+</html>
